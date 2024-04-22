@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
-import { fakerJA as faker} from "@faker-js/faker";
 import PersonIpsum from "./PersonIpsum";
 import GenerateIpsumMenu from "./GenerateIpsumMenu";
 import "./App.css";

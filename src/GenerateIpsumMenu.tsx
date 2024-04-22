@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./css/GenerateIpsumMenu.css";
 import PersonMenu from "./Components/PersonMenu";
+import CompanyMenu from "./Components/CompanyMenu";
 
 const ipsumsMenu: Array<{ id: number, type: string, name: string }> = [
     { id: 1, type: 'person', name: '人物' },
@@ -17,15 +18,15 @@ function GenerateIpsumMenu(): JSX.Element {
     function generateMenu() {
         const select = document.querySelector('select');
         const value: number = Number(select!.value);
-        console.log(value);
+
         let key = new Date().getTime(); // 現在のタイムスタンプをキーとして使用
         switch (value) {
             case 1:
                 // key属性を指定することで再度ボタンがクリックされたときに同じメニューを再生成することができる
-                setIpsumTable(<PersonMenu key={key}/>)
+                setIpsumTable(<PersonMenu key={key} />)
                 break;
             case 2:
-                //ipsumTable = <CompanyMenu />
+                setIpsumTable(<CompanyMenu key={key} />)
                 break;
             case 3:
                 //ipsumTable = <CommerceMenu />
