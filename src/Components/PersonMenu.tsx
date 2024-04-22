@@ -1,25 +1,48 @@
 import { fakerJA as faker } from "@faker-js/faker";
-import { useState } from "react";
+import { copyToClipboard } from "Utils/CopyToClipbord";
+import "../css/PersonMenu.css";
 
 function PersonMenu() {
 
-    const [personData, setPersonData] = useState(generatePersonData());
+    const personData = generatePersonData()
 
-    function generatePersonData(): { name: string, gender: string, age: number, address: string, phone: string, email: string } {
-        const personData: { name: string, gender: string, age: number, address: string, phone: string, email: string } = {
+    function generatePersonData(): { name: string, gender: string, age: number, address: string, phone: string, email: string, companyName: string, jobType: string } {
+        const personData: { name: string, gender: string, age: number, address: string, phone: string, email: string, companyName: string, jobType: string } = {
             name: faker.person.fullName(),
             gender: faker.person.gender(),
             age: faker.number.int({ min: 18, max: 100 }),
-            address: faker.location.streetAddress(),
-            phone: faker.phone.number(),
+            address: `${faker.location.state()} ${faker.location.city()} ${faker.location.streetAddress({ useFullAddress: true })}`,
+            phone: generatePhoneNumber(),
             email: faker.internet.email(),
+            companyName: faker.company.name(),
+            jobType: faker.person.jobType(),
         }
         return personData;
     }
-    
-    // データをコピーする
-    function copyToClipboard(data: string|number|boolean) {
-        navigator.clipboard.writeText(data.toString());
+
+    // 日本で使用されそうな電話番号を生成する関数
+    function generatePhoneNumber(): string {
+        // 電話番号の最初の部分
+        const areaCode = ["080", "070", "090"];
+
+        // 電話番号の最初の部分をランダムに選択
+        const start = areaCode[Math.floor(Math.random() * areaCode.length)];
+
+        // 0000から9999までのランダムな数値を生成
+        //市内局番
+        const localCode = Math.floor(Math.random() * 10000);
+
+        // 市外局番
+        const subscriberNumber = Math.floor(Math.random() * 10000);
+
+        // 数値を4桁の文字列に変換。例: 59 -> "0059"
+        const localCodeStr = localCode.toString().padStart(4, '0');
+        const subscriberNumberStr = subscriberNumber.toString().padStart(4, '0');
+
+        // 電話番号を組み立てる
+        const phoneNumber = `${start}-${localCodeStr}-${subscriberNumberStr}`;
+
+        return phoneNumber;
     }
 
     return (

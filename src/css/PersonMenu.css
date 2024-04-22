@@ -1,0 +1,18 @@
+th {
+    background-color: #0059ff;
+    color: white;
+}
+
+/* 奇数行のスタイル */
+table tr:nth-child(odd) {
+    background-color: rgb(255, 255, 255);
+}
+
+/* 偶数行のスタイル */
+table tr:nth-child(even) {
+    background-color: #ffe89d;
+}
+
+td:hover {
+    background-color: rgb(183, 255, 243);
+}

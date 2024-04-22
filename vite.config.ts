@@ -18,4 +18,11 @@ export default defineConfig(async () => ({
       ignored: ["**/src-tauri/**"],
     },
   },
+  // 
+  resolve: {
+    alias: {
+      // 'src'ディレクトリを基点とするパスを解決する
+      Utils: '/src/Utils',
+    },
+  },
 }));
