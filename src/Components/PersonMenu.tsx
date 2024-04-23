@@ -6,8 +6,9 @@ function PersonMenu() {
 
     const personData = generatePersonData()
 
-    function generatePersonData(): { name: string, gender: string, age: number, address: string, phone: string, email: string, companyName: string, jobType: string } {
-        const personData: { name: string, gender: string, age: number, address: string, phone: string, email: string, companyName: string, jobType: string } = {
+    function generatePersonData(): { avatarUrl: string, name: string, gender: string, age: number, address: string, phone: string, email: string, companyName: string, jobType: string } {
+        const personData: { avatarUrl: string, name: string, gender: string, age: number, address: string, phone: string, email: string, companyName: string, jobType: string } = {
+            avatarUrl: faker.image.avatar(),
             name: faker.person.fullName(),
             gender: faker.person.gender(),
             age: faker.number.int({ min: 18, max: 100 }),
@@ -55,6 +56,11 @@ function PersonMenu() {
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>アバター</td>
+                    <td><a href={personData.avatarUrl} target="_blank"><img src={personData.avatarUrl} alt="avatar" width="100"/></a></td>
+                    <td><button type="button" onClick={() => copyToClipboard(personData.avatarUrl)}>コピー</button></td>
+                </tr>
                 <tr>
                     <td>人物名</td>
                     <td className="genelate-datas">{personData.name}</td>

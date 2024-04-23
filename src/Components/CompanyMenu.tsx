@@ -3,9 +3,9 @@ import { copyToClipboard } from "Utils/CopyToClipbord";
 
 function CompanyMenu() {
 
-    const personData = generatePersonData()
+    const personData = generateCompanyData()
 
-    function generatePersonData() {
+    function generateCompanyData() {
         const personData = {
             companyName: faker.company.name(),
             buzzNoun: faker.company.buzzNoun(),

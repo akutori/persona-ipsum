@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./css/GenerateIpsumMenu.css";
 import PersonMenu from "./Components/PersonMenu";
 import CompanyMenu from "./Components/CompanyMenu";
+import CommerceMenu from "./Components/CommerceMenu";
 
 const ipsumsMenu: Array<{ id: number, type: string, name: string }> = [
     { id: 1, type: 'person', name: '人物' },
@@ -29,7 +30,7 @@ function GenerateIpsumMenu(): JSX.Element {
                 setIpsumTable(<CompanyMenu key={key} />)
                 break;
             case 3:
-                //ipsumTable = <CommerceMenu />
+                setIpsumTable(<CommerceMenu key={key} />)
                 break;
             case 4:
                 //ipsumTable = <LoremMenu />
