@@ -21,7 +21,8 @@ console.log(faker.person.jobType())
 // console.log(faker.commerce.productAdjective());
 // console.log(faker.commerce.productMaterial());
 // console.log(faker.commerce.product());
-// console.log(faker.lorem.text());
+//console.log(faker.lorem.text());
+console.log(faker.lorem.sentence({min:10,max:40}));
 
 // console.log(`${faker.location.state()} ${faker.location.city()} ${faker.location.streetAddress({ useFullAddress: true })}`)
 
