@@ -22,5 +22,9 @@
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "^5.0.2",
     "vite": "^5.0.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/akutori/persona-ipsum.git",
+  "author": "akutori <78586241+akutori@users.noreply.github.com>",
+  "license": "MIT"
 }
