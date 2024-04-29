@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/tauri";
-import PersonIpsum from "./PersonIpsum";
 import GenerateIpsumMenu from "./GenerateIpsumMenu";
 import "./App.css";
 
@@ -15,8 +14,6 @@ function App() {
 
   return (
     <div className="container">
-
-      <PersonIpsum />
       <GenerateIpsumMenu />
     </div>
   );

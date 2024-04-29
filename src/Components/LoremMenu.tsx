@@ -1,20 +1,28 @@
 import { fakerJA as faker } from "@faker-js/faker";
+import { BaseSyntheticEvent, useState } from "react";
 import { copyToClipboard } from "Utils/CopyToClipbord";
 
 function CompanyMenu() {
 
-    const personData = generateCompanyData()
+    // レンジで文章を動的に変更できるようにするためにuseStateを使用して内容を保持するように
+    const [ipsumData, setIpsumData] = useState(generateCompanyData());
+    // inputのvalueを保持する
+    const [range, setRange] = useState(1)
+
+    const [textCount, setTextCount] = useState(ipsumData.loremParagraph.length)
 
     function generateCompanyData() {
-        const personData = {
-            companyName: faker.lorem.text(),
-            buzzNoun: faker.company.buzzNoun(),
-            buzzPhrase: faker.company.buzzPhrase(),
-            catchPhrase: faker.company.catchPhrase(),
-            url: faker.internet.url(),
-            product: faker.commerce.product(),
+        const ipsumData = {
+            loremParagraph: faker.lorem.paragraph(1),
         }
-        return personData;
+        return ipsumData;
+    }
+
+    function changeIpsumRange(event: BaseSyntheticEvent): void {
+        ipsumData.loremParagraph = faker.lorem.paragraph(Number(event.target.value));
+        setRange(event.target.value);
+        setTextCount(ipsumData.loremParagraph.length)
+        setIpsumData(ipsumData)
     }
 
 
@@ -29,34 +37,20 @@ function CompanyMenu() {
             </thead>
             <tbody>
                 <tr>
-                    <td>企業名</td>
-                    <td className="genelate-datas">{personData.companyName}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.companyName)}>コピー</button></td>
+                    <td>レンジ</td>
+                    <td><input type="range" min="1" max="100" onInput={changeIpsumRange} value={range} /></td>
+                    <td>
+                        <span id="ipsumRange">
+                            行数:{range}
+                            <br />
+                            文字数:{textCount}
+                        </span>
+                    </td>
                 </tr>
                 <tr>
-                    <td>売り文句</td>
-                    <td>{personData.buzzNoun}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.buzzNoun)}>コピー</button></td>
-                </tr>
-                <tr>
-                    <td>バズ名詞</td>
-                    <td>{personData.buzzPhrase}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.buzzPhrase)}>コピー</button></td>
-                </tr>
-                <tr>
-                    <td>キャッチフレーズ</td>
-                    <td>{personData.catchPhrase}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.catchPhrase)}>コピー</button></td>
-                </tr>
-                <tr>
-                    <td>商材</td>
-                    <td>{personData.product}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.product)}>コピー</button></td>
-                </tr>
-                <tr>
-                    <td>URL</td>
-                    <td>{personData.url}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.url)}>コピー</button></td>
+                    <td>ランダム文章</td>
+                    <td className="lorem-paragraph">{ipsumData.loremParagraph}</td>
+                    <td><button type="button" onClick={() => copyToClipboard(ipsumData.loremParagraph)}>コピー</button></td>
                 </tr>
             </tbody>
         </table>
