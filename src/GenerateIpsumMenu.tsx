@@ -46,7 +46,7 @@ function GenerateIpsumMenu(): JSX.Element {
         <>
             {isOpen && ipsumTable}
             <div className="generate-menu">
-                <select>
+                <select className="create-category">
                     {ipsumsMenu.map((menu: { id: number, type: string, name: string }) => (<option key={menu.id} value={menu.id}>{menu.name}</option>))}
                 </select>
                 <div className="generate-button">

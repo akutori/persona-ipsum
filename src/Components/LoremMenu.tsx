@@ -9,6 +9,7 @@ function CompanyMenu() {
     // inputのvalueを保持する
     const [range, setRange] = useState(1)
 
+    // 生成された文章の文字数
     const [textCount, setTextCount] = useState(ipsumData.loremParagraph.length)
 
     function generateCompanyData() {
