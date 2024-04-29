@@ -57,6 +57,7 @@ input,
 button {
   border-radius: 8px;
   border: 1px solid transparent;
+  border-color: gray;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
@@ -74,6 +75,7 @@ button {
 button:hover {
   border-color: #396cd8;
 }
+
 button:active {
   border-color: #396cd8;
   background-color: #e8e8e8;
@@ -86,6 +88,12 @@ button {
 
 #greet-input {
   margin-right: 5px;
+}
+
+select {
+  width: 10vw;
+  height: 3vh;
+  margin: 15px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -103,6 +111,7 @@ button {
     color: #ffffff;
     background-color: #0f0f0f98;
   }
+
   button:active {
     background-color: #0f0f0f69;
   }

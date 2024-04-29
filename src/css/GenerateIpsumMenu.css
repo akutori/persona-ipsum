@@ -1,0 +1,16 @@
+.generate-button {
+    margin-top: 5vh;
+}
+
+.create-category {
+    border-radius: 15px;
+    text-align: center;
+    height: 4dvh;
+    width: 10dvw;
+}
+
+@media screen and (max-width: 770px) {
+    .create-category{
+        width: 30dvw;
+    }
+}

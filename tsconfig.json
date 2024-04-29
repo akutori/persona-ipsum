@@ -18,7 +18,11 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    // 絶対パス参照でないモジュール名を解決するための基点となるディレクトリを設定できる
+    // 起点となるパス以降のファイルパスの名前解決をしてくれる
+    // これを入れなくても問題はないがIDEがファイルを認識してくれなくなるのでいれること
+    "baseUrl": "./src"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
