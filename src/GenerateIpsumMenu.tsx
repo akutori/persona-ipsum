@@ -44,7 +44,7 @@ function GenerateIpsumMenu(): JSX.Element {
         <>
             {ipsumTable}
             <div className="generate-menu">
-                <select className="create-category">
+                <select className="create-category" title="生成項目を選択">
                     {ipsumsMenu.map((menu: { id: number, type: string, name: string }) => (<option key={menu.id} value={menu.id}>{menu.name}</option>))}
                 </select>
                 <div className="generate-button">

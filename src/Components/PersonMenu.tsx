@@ -1,6 +1,6 @@
 import { fakerJA as faker } from "@faker-js/faker";
 import { copyToClipboard } from "Utils/CopyToClipbord";
-import TableBase from "./TableBase";
+// import TableBase from "./TableBase";
 import "../css/PersonMenu.css";
 
 function PersonMenu() {
