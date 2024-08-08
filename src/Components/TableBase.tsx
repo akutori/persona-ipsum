@@ -6,17 +6,20 @@
 // import CompanyMenu from "Components/CompanyMenu";
 // import GenerateIpsumMenu from "../GenerateIpsumMenu";
 
-// function TableBase() {
+// function TableBase({ key = 1 }) {
 
 //     const [menuData, setMenuData] = useState();
 
 //     console.log([menuData,]);
+//     console.log(key);
 
 //     function generateData() {
 
-//         // <td><CategoryName /></td>
-//         // <td className="genelate-datas"><CategoryData /></td>
-//         // <td><button type="button" onClick={() => copyToClipboard(categoryData)}>コピー</button></td>
+//         return (
+//             <>
+
+//             </>
+//         );
 
 //     }
 
