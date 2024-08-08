@@ -14,8 +14,7 @@ const ipsumsMenu: Array<{ id: number, type: string, name: string }> = [
 
 
 function GenerateIpsumMenu(): JSX.Element {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [ipsumTable, setIpsumTable] = useState<JSX.Element>(<></>);
+    const [ipsumTable, setIpsumTable] = useState<JSX.Element>(<PersonMenu />);
 
     function generateMenu() {
         const select = document.querySelector('select');
@@ -34,17 +33,16 @@ function GenerateIpsumMenu(): JSX.Element {
                 setIpsumTable(<CommerceMenu key={key} />)
                 break;
             case 4:
-                setIpsumTable(<LoremMenu key={key}/>)
+                setIpsumTable(<LoremMenu key={key} />)
                 break;
             default:
                 break;
         }
-        setIsOpen(true);
     }
 
     return (
         <>
-            {isOpen && ipsumTable}
+            {ipsumTable}
             <div className="generate-menu">
                 <select className="create-category">
                     {ipsumsMenu.map((menu: { id: number, type: string, name: string }) => (<option key={menu.id} value={menu.id}>{menu.name}</option>))}
