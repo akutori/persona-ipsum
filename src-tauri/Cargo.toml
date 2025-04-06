@@ -1,6 +1,6 @@
 [package]
 name = "persona-ipsum"
-version = "0.0.0"
+version = "0.0.3"
 description = "A Tauri App"
 authors = ["you"]
 edition = "2021"
@@ -14,6 +14,7 @@ tauri-build = { version = "2", features = [] }
 tauri = { version = "2", features = [] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+tauri-plugin-shell = "2"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
@@ -22,3 +23,7 @@ custom-protocol = ["tauri/custom-protocol"]
 [lib]
 name = "app_lib"
 crate-type = ["staticlib", "cdylib", "rlib", "lib"]
+
+[[bin]]
+name = "persona_ipsum_bin"
+path = "./src/main.rs"
