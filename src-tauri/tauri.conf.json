@@ -6,6 +6,11 @@
     "devUrl": "http://localhost:1420"
   },
   "bundle": {
+    "windows":{
+      "wix": {
+        "language": "ja-JP"
+      }
+    },
     "active": true,
     "targets": "all",
     "icon": [
