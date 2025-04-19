@@ -1,7 +1,7 @@
 import { fakerJA as faker } from "@faker-js/faker";
 import { copyToClipboard } from "Utils/CopyToClipbord";
+import  Button from "./Parts/Button";
 // import TableBase from "./TableBase";
-import "../css/PersonMenu.css";
 
 function PersonMenu() {
 
@@ -26,7 +26,7 @@ function PersonMenu() {
     // 日本で使用されそうな電話番号を生成する関数
     function generatePhoneNumber(): string {
         // 電話番号の最初の部分
-        const areaCode = ["080", "070", "090"];
+        const areaCode = ["080", "070", "090","050"];
 
         // 電話番号の最初の部分をランダムに選択
         const start = areaCode[Math.floor(Math.random() * areaCode.length)];
@@ -49,7 +49,7 @@ function PersonMenu() {
     }
 
     return (
-        <table>
+        <table className="table table-bordered table-striped table-hover table-sm table-responsive-sm">
             <thead>
                 <tr>
                     <th>category</th>
@@ -61,42 +61,42 @@ function PersonMenu() {
                 <tr>
                     <td>アバター</td>
                     <td><a href={personData.avatarUrl} target="_blank"><img src={personData.avatarUrl} alt="avatar" width="100" /></a></td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.avatarUrl)}>コピー</button></td>
+                    <td><Button personData={personData.avatarUrl} /></td>
                 </tr>
                 <tr>
                     <td>人物名</td>
                     <td className="genelate-datas">{personData.name}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.name)}>コピー</button></td>
+                    <td><Button personData={personData.name} /></td>
                 </tr>
                 <tr>
                     <td>性別</td>
                     <td>{personData.gender}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.gender)}>コピー</button></td>
+                    <td><Button personData={personData.gender} /></td>
                 </tr>
                 <tr>
                     <td>年齢</td>
                     <td>{personData.age}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.age)}>コピー</button></td>
+                    <td><Button personData={personData.age.toString()} /></td>
                 </tr>
                 <tr>
                     <td>生年月日</td>
                     <td>{personData.birth}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.birth)}>コピー</button></td>
+                    <td><Button personData={personData.birth} /></td>
                 </tr>
                 <tr>
                     <td>住所</td>
                     <td>{personData.address}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.address)}>コピー</button></td>
+                    <td><Button personData={personData.address} /></td>
                 </tr>
                 <tr>
                     <td>電話</td>
                     <td>{personData.phone}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.phone)}>コピー</button></td>
+                    <td><Button personData={personData.phone} /></td>
                 </tr>
                 <tr>
                     <td>EMAIL</td>
                     <td>{personData.email}</td>
-                    <td><button type="button" onClick={() => copyToClipboard(personData.email)}>コピー</button></td>
+                    <td><Button personData={personData.email} /></td>
                 </tr>
             </tbody>
         </table>

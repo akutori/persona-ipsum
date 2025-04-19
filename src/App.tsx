@@ -1,5 +1,4 @@
 import GenerateIpsumMenu from "./GenerateIpsumMenu";
-import "./App.css";
 
 function App() {
 

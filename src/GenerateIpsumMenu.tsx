@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./css/GenerateIpsumMenu.css";
 import PersonMenu from "./Components/PersonMenu";
 import CompanyMenu from "./Components/CompanyMenu";
 import CommerceMenu from "./Components/CommerceMenu";
@@ -43,8 +42,8 @@ function GenerateIpsumMenu(): JSX.Element {
     return (
         <>
             {ipsumTable}
-            <div className="generate-menu">
-                <select className="create-category" title="生成項目を選択">
+            <div className="container">
+                <select className="form-inputs" title="生成項目を選択">
                     {ipsumsMenu.map((menu: { id: number, type: string, name: string }) => (<option key={menu.id} value={menu.id}>{menu.name}</option>))}
                 </select>
                 <div className="generate-button">
